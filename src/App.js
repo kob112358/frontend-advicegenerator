@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from "./App.module.css";
+import React, { useState } from "react";
+
+import AdviceCard from "./components/AdviceCard";
 
 function App() {
+  const [advice, setAdvice] = useState(
+    `"Its easy to st up and take notice, what's difficult is getting up and taking action."`
+  );
+  const [adviceNum, setAdviceNum] = useState("117");
+
+  const getNewAdvice = () => {
+    fetch("https://api.adviceslip.com/advice")
+      .then((res) => res.json())
+      .then((data) => {setAdviceNum(data?.slip?.id);setAdvice(data?.slip?.advice)})
+      .catch((e) => console.log(e));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div className={styles.App}>
+      <AdviceCard num={adviceNum} advice={advice} getAdvice={getNewAdvice} />
+
+      <div className={styles.attribution}>
+        Challenge by{" "}
+        <a href="https://www.frontendmentor.io?ref=challenge">
+          Frontend Mentor
         </a>
-      </header>
+        . Coded by{" "}
+        <a href="https://www.frontendmentor.io/profile/kob112358">
+          Eric Kobliska
+        </a>
+        .
+      </div>
     </div>
   );
 }
