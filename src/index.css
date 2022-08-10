@@ -9,6 +9,8 @@ body {
   font-size: 28px;
   font-family: 'Manrope', sans-serif;
   font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {

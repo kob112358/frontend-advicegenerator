@@ -13,8 +13,9 @@
 }
 
 .card div {
-    padding: 5%;
+    padding: 3%;
 }
+
 
 .advice {
     color: hsl(150, 100%, 66%);
@@ -24,11 +25,19 @@
 
 .dice {
     transform: translate(0, 50%);
+    background-color: hsl(150, 100%, 66%);
+    border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dice:hover {
     box-shadow: 5px 5px 25px hsl(150, 100%, 66%), -5px -5px 25px hsl(150, 100%, 66%);
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .divider {

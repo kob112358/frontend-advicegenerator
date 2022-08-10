@@ -7,9 +7,11 @@ const AdviceCard = (props) => {
     <>
       <div className={styles.card}>
         <div className={styles.advice}> ADVICE #{props.num}</div>
-        <div>{props.advice}</div>
+        <div>{props.isLoading ? 'loading...' : props.advice}</div>
         <div className={styles.divider}></div>
-        <Dice className={styles.dice} onClick={props.getAdvice}/>
+        <div className={styles.dice} onClick={props.getAdvice}>
+          <Dice />
+        </div>
       </div>
     </>
   );
